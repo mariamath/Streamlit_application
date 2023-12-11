@@ -21,10 +21,10 @@ if what_to_display in ["Main characteristics", "Show histogram"]:
         fig = px.histogram(df, x=col)
         fig.update_layout(bargap=0.1)
         st.plotly_chart(fig)
-
+df1=df.iloc[:, 2:]
 if what_to_display == "Heatmap":
     fig, ax = plt.subplots()
-    sns.heatmap(df.select_dtypes(include="number").corr(), annot=True, vmin=-1, vmax=1, center=0, ax=ax)
+    sns.heatmap(df1.select_dtypes(include="number").corr(), annot=True, vmin=-1, vmax=1, center=0, ax=ax)
     st.pyplot(fig)
 
 if what_to_display == "Pairwise plots":
